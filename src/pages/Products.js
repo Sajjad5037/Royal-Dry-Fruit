@@ -260,7 +260,6 @@ const Products = () => {
   }, {});
 
   const handleCheckout = async () => {
-  // Basic validations
   if (!cart.length) {
     alert("Cart is empty");
     return;
@@ -271,12 +270,10 @@ const Products = () => {
     return;
   }
 
-  // Build order summary
   const summary = cart
     .map((item, i) => `${i + 1}. ${item.name} x${item.quantity} — Rs.${item.price * item.quantity}`)
     .join("\n");
 
-  // Confirm order
   const confirmed = window.confirm(
     `Order Summary:\n${summary}\nTotal: Rs.${total}\nPhone: ${phone}\nProceed?`
   );
@@ -284,7 +281,12 @@ const Products = () => {
   if (!confirmed) return;
 
   try {
-    const payload = { items: cart, total, phone };
+    const payload = {
+      items: cart,
+      total,
+      phone,
+      timestamp: new Date().toISOString()  // ✅ Add timestamp
+    };
 
     const res = await fetch("https://usefulapis-production.up.railway.app/api/send-dry-fruit-order", {
       method: "POST",
@@ -295,8 +297,6 @@ const Products = () => {
     if (!res.ok) throw new Error("Failed to send order");
 
     alert("Order placed successfully! You will receive an SMS shortly.");
-
-    // Reset state
     setCart([]);
     setPhone("");
     setOrderPlaced(true);
