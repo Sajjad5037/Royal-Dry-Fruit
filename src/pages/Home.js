@@ -21,7 +21,7 @@ const Home = () => {
           Premium quality dry fruits delivered straight to your doorstep.
         </p>
         <Link
-          to="/products"
+          to="/ShopOnline"
           className="bg-green-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:bg-green-800 transition duration-300"
         >
           Shop Now
