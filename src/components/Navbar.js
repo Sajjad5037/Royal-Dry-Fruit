@@ -9,8 +9,8 @@ const Navbar = () => {
           
           {/* Logo */}
           <div className="flex-shrink-0">
-            <div className="flex items-center space-x-2">
-              <img src="/logo.png" alt="Logo" className="h-8 w-8" />
+            <div className="flex items-center space-x-3">
+              <img src="/logo.png" alt="Logo" className="h-16 w-16" />
               <span className="text-2xl font-bold text-green-800">
                 Royal Dry Fruits
               </span>
