@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ShopOnline from "./pages/ShopOnline";
 
 function App() {
   
