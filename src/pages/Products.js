@@ -128,6 +128,7 @@ const Products = () => {
       try {
         // Replace with your actual API or local data
         const data = [
+          // Nuts
           {
             id: 1,
             name: "Almonds",
@@ -152,7 +153,70 @@ const Products = () => {
             image_url: "/images/walnuts.jpg",
             category: "Nuts",
           },
+        
+          // Seeds
+          {
+            id: 4,
+            name: "Pumpkin Seeds",
+            price: 500,
+            description: "Crunchy and nutritious pumpkin seeds",
+            image_url: "/images/pumpkin-seeds.jpg",
+            category: "Seeds",
+          },
+          {
+            id: 5,
+            name: "Sunflower Seeds",
+            price: 400,
+            description: "High-quality sunflower seeds",
+            image_url: "/images/sunflower-seeds.jpg",
+            category: "Seeds",
+          },
+        
+          // Dried Fruits
+          {
+            id: 6,
+            name: "Raisins",
+            price: 300,
+            description: "Sweet and juicy raisins",
+            image_url: "/images/raisins.jpg",
+            category: "Dried Fruits",
+          },
+          {
+            id: 7,
+            name: "Dates",
+            price: 600,
+            description: "Soft and natural dates",
+            image_url: "/images/dates.jpg",
+            category: "Dried Fruits",
+          },
+          {
+            id: 8,
+            name: "Apricots",
+            price: 700,
+            description: "Premium dried apricots",
+            image_url: "/images/apricots.jpg",
+            category: "Dried Fruits",
+          },
+        
+          // Mixes
+          {
+            id: 9,
+            name: "Trail Mix",
+            price: 800,
+            description: "Healthy mix of nuts and dried fruits",
+            image_url: "/images/trail-mix.jpg",
+            category: "Mixes",
+          },
+          {
+            id: 10,
+            name: "Energy Mix",
+            price: 900,
+            description: "Perfect snack with nuts, seeds, and dried fruits",
+            image_url: "/images/energy-mix.jpg",
+            category: "Mixes",
+          },
         ];
+
         setProducts(data);
       } catch (err) {
         console.error(err);
