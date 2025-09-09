@@ -196,13 +196,23 @@ const Products = () => {
   }, {});
 
   const handleCheckout = async () => {
-  if (!cart.length) return alert("Cart is empty");
-  if (!phone) return alert("Enter your phone number");
+  // Basic validations
+  if (!cart.length) {
+    alert("Cart is empty");
+    return;
+  }
 
+  if (!phone) {
+    alert("Enter your phone number");
+    return;
+  }
+
+  // Build order summary
   const summary = cart
     .map((item, i) => `${i + 1}. ${item.name} x${item.quantity} — Rs.${item.price * item.quantity}`)
     .join("\n");
 
+  // Confirm order
   const confirmed = window.confirm(
     `Order Summary:\n${summary}\nTotal: Rs.${total}\nPhone: ${phone}\nProceed?`
   );
@@ -210,13 +220,9 @@ const Products = () => {
   if (!confirmed) return;
 
   try {
-    const payload = {
-      items: cart,
-      total,
-      phone,
-    };
+    const payload = { items: cart, total, phone };
 
-    const res = await fetch(""https://usefulapis-production.up.railway.app/api/send-dry-fruit-order"", {
+    const res = await fetch("https://usefulapis-production.up.railway.app/api/send-dry-fruit-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -225,14 +231,17 @@ const Products = () => {
     if (!res.ok) throw new Error("Failed to send order");
 
     alert("Order placed successfully! You will receive an SMS shortly.");
+
+    // Reset state
     setCart([]);
     setPhone("");
     setOrderPlaced(true);
   } catch (err) {
-    console.error(err);
+    console.error("Order submission error:", err);
     alert("Error sending order. Please try again.");
   }
 };
+
 
 
   return (
