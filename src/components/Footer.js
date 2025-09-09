@@ -10,7 +10,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Royal Dry Fruits. All rights reserved.
         </p>
 
-        {/* Right side - Social links */}
+        {/* Right side - Social links + WhatsApp */}
         <div className="flex space-x-4 mt-4 md:mt-0">
           <a
             href="https://facebook.com"
@@ -35,6 +35,15 @@ const Footer = () => {
             className="hover:text-yellow-300"
           >
             Twitter
+          </a>
+          {/* WhatsApp Chat Button */}
+          <a
+            href="https://wa.me/923004112884" // replace with your phone number
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-500 hover:bg-green-600 px-3 py-1 rounded font-semibold"
+          >
+            Chat on WhatsApp
           </a>
         </div>
 
