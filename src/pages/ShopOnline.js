@@ -114,7 +114,7 @@ const styles = {
   },
 };
 
-const Products = () => {
+const ShopOnline = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
@@ -419,4 +419,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ShopOnline;
