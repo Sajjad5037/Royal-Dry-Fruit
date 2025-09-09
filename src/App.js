@@ -14,9 +14,7 @@ function App() {
   return (
     <Router>
       {/* Navbar with white background */}
-      <div className="bg-white text-primary shadow-md">
-        <Navbar />
-      </div>
+     
 
       {/* Main content area */}
       <div className="bg-gray-50 min-h-screen">
