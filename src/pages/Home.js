@@ -81,7 +81,7 @@ const Home = () => {
       <section className="py-16 bg-green-200 text-center">
         <h2 className="text-3xl font-bold mb-4 text-green-900">Get Your Favorite Dry Fruits Today!</h2>
         <Link
-          to="/products"
+          to="/ShopOnline"
           className="bg-green-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:bg-green-800 transition duration-300"
         >
           Shop Now
