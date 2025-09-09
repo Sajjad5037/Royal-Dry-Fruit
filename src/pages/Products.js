@@ -8,50 +8,49 @@ const styles = {
     minHeight: "100vh",
   },
   title: {
-    fontSize: "2.5rem",
+    fontSize: "3rem",
     textAlign: "center",
     color: "#8e44ad",
-    marginBottom: "1rem",
+    marginBottom: "2rem",
   },
   sectionHeader: {
-    fontSize: "1.75rem",
+    fontSize: "2rem",
     color: "#2c3e50",
     borderBottom: "3px solid #9b59b6",
     paddingBottom: "0.5rem",
     marginTop: "2rem",
+    marginBottom: "1rem",
   },
-  menuGroup: {
-    marginBottom: "2rem",
-  },
-  menuItemsWrapper: {
+  productRow: {
     display: "flex",
-    flexWrap: "wrap",
-    gap: "1rem",
-    justifyContent: "center",
-  },
-  menuCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: "20px",
+    marginBottom: "1.5rem",
     backgroundColor: "#fff",
+    padding: "15px",
     borderRadius: "8px",
     boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-    width: "280px",
-    padding: "1rem",
-    textAlign: "center",
-    transition: "transform 0.2s",
   },
-  menuCardHover: {
-    transform: "scale(1.02)",
-  },
-  menuImage: {
-    width: "100%",
-    height: "180px",
+  productImage: {
+    width: "150px",
+    height: "150px",
     objectFit: "cover",
-    borderRadius: "4px",
-    marginBottom: "0.5rem",
+    borderRadius: "8px",
   },
-  benefitText: {
+  productInfo: {
+    flex: 1,
+  },
+  productName: {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    marginBottom: "0.5rem",
+    color: "#34495e",
+  },
+  productDescription: {
+    fontSize: "1rem",
     color: "#2c3e50",
-    marginTop: "0.5rem",
-    textAlign: "justify",
+    lineHeight: 1.5,
   },
 };
 
@@ -63,7 +62,6 @@ const Products = () => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        // Replace with your actual API or local data
         const data = [
           {
             id: 1,
@@ -162,30 +160,17 @@ const Products = () => {
       <h1 style={styles.title}>Royal Dry Fruits – Health Benefits</h1>
 
       {Object.entries(groupedProducts).map(([category, items]) => (
-        <div key={category} style={styles.menuGroup}>
+        <div key={category}>
           <h2 style={styles.sectionHeader}>{category}</h2>
-          <div style={styles.menuItemsWrapper}>
-            {items.map((item) => (
-              <div
-                key={item.id}
-                style={styles.menuCard}
-                onMouseEnter={(e) =>
-                  Object.assign(e.currentTarget.style, styles.menuCardHover)
-                }
-                onMouseLeave={(e) =>
-                  Object.assign(e.currentTarget.style, { transform: "none" })
-                }
-              >
-                <img
-                  src={item.image_url}
-                  alt={item.name}
-                  style={styles.menuImage}
-                />
-                <h4>{item.name}</h4>
-                <p style={styles.benefitText}>{item.description}</p>
+          {items.map((item) => (
+            <div key={item.id} style={styles.productRow}>
+              <img src={item.image_url} alt={item.name} style={styles.productImage} />
+              <div style={styles.productInfo}>
+                <div style={styles.productName}>{item.name}</div>
+                <div style={styles.productDescription}>{item.description}</div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       ))}
     </div>
