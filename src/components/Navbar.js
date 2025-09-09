@@ -36,7 +36,7 @@ const Navbar = () => {
           {/* Shop Now button */}
           <div className="hidden md:flex">
             <Link
-              to="/products"
+              to="/ShopOnline"
               className="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition duration-300"
             >
               Shop Now
