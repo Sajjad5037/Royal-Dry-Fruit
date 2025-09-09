@@ -9,9 +9,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 
 function App() {
-  useEffect(() => {
-    document.title = "Royal Dry Fruits Store"; // Sets the browser tab title
-  }, []); // empty dependency means this runs once on load
+  
   return (
     <Router>
       {/* Navbar with white background */}
