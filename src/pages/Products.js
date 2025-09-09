@@ -48,79 +48,16 @@ const styles = {
     borderRadius: "4px",
     marginBottom: "0.5rem",
   },
-  addButton: {
-    marginTop: "0.75rem",
-    padding: "0.5rem 1rem",
-    backgroundColor: "#27ae60",
-    color: "#fff",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-    fontWeight: "bold",
-  },
-  cartSection: {
-    maxWidth: "600px",
-    margin: "2rem auto",
-    backgroundColor: "#fff",
-    borderRadius: "8px",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-    padding: "1.5rem",
-  },
-  cartList: {
-    listStyle: "none",
-    padding: 0,
-    margin: 0,
-  },
-  cartItem: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    borderBottom: "1px solid #ecf0f1",
-    padding: "0.75rem 0",
-  },
-  removeButton: {
-    padding: "0.3rem 0.6rem",
-    backgroundColor: "#c0392b",
-    color: "#fff",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-  },
-  phoneInput: {
-    width: "100%",
-    padding: "0.75rem",
-    fontSize: "1rem",
-    borderRadius: "4px",
-    border: "1px solid #bdc3c7",
+  benefitText: {
+    color: "#2c3e50",
     marginTop: "0.5rem",
-  },
-  totalRow: {
-    display: "flex",
-    justifyContent: "space-between",
-    fontSize: "1.2rem",
-    fontWeight: "bold",
-    marginTop: "1rem",
-  },
-  checkoutButton: {
-    marginTop: "1rem",
-    width: "100%",
-    padding: "0.75rem",
-    backgroundColor: "#9b59b6",
-    color: "#fff",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-    fontSize: "1rem",
+    textAlign: "justify",
   },
 };
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState([]);
-  const [phone, setPhone] = useState("");
-  const [orderPlaced, setOrderPlaced] = useState(false);
-  const [clickedItemId, setClickedItemId] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -128,90 +65,73 @@ const Products = () => {
       try {
         // Replace with your actual API or local data
         const data = [
-          // Nuts
           {
             id: 1,
             name: "Almonds",
-            price: 1200,
-            description: "Fresh and crunchy almonds",
+            description: "Rich in vitamin E and healthy fats. Supports heart health and skin wellness.",
             image_url: "/images/almonds.jpg",
             category: "Nuts",
           },
           {
             id: 2,
             name: "Cashews",
-            price: 1500,
-            description: "Premium cashews",
+            description: "High in magnesium and antioxidants. Helps improve bone and heart health.",
             image_url: "/images/cashews.jpg",
             category: "Nuts",
           },
           {
             id: 3,
             name: "Walnuts",
-            price: 1600,
-            description: "Healthy walnuts",
+            description: "Loaded with omega-3 fatty acids. Supports brain function and reduces inflammation.",
             image_url: "/images/walnuts.jpg",
             category: "Nuts",
           },
-        
-          // Seeds
           {
             id: 4,
             name: "Pumpkin Seeds",
-            price: 500,
-            description: "Crunchy and nutritious pumpkin seeds",
+            description: "A great source of zinc and magnesium. Boosts immunity and heart health.",
             image_url: "/images/pumpkin-seeds.jpg",
             category: "Seeds",
           },
           {
             id: 5,
             name: "Sunflower Seeds",
-            price: 400,
-            description: "High-quality sunflower seeds",
+            description: "Rich in vitamin E and selenium. Helps with skin health and protects against oxidative stress.",
             image_url: "/images/sunflower-seeds.jpg",
             category: "Seeds",
           },
-        
-          // Dried Fruits
           {
             id: 6,
             name: "Raisins",
-            price: 300,
-            description: "Sweet and juicy raisins",
+            description: "Packed with antioxidants and iron. Improves digestion and provides instant energy.",
             image_url: "/images/raisins.jpg",
             category: "Dried Fruits",
           },
           {
             id: 7,
             name: "Dates",
-            price: 600,
-            description: "Soft and natural dates",
+            description: "Natural sweetener full of fiber and potassium. Supports digestion and heart health.",
             image_url: "/images/dates.jpg",
             category: "Dried Fruits",
           },
           {
             id: 8,
             name: "Apricots",
-            price: 700,
-            description: "Premium dried apricots",
+            description: "High in vitamins A and C. Helps improve vision and skin health.",
             image_url: "/images/apricots.jpg",
             category: "Dried Fruits",
           },
-        
-          // Mixes
           {
             id: 9,
             name: "Trail Mix",
-            price: 800,
-            description: "Healthy mix of nuts and dried fruits",
+            description: "A healthy combination of nuts, seeds, and dried fruits. Provides energy and essential nutrients.",
             image_url: "/images/trail-mix.jpg",
             category: "Mixes",
           },
           {
             id: 10,
             name: "Energy Mix",
-            price: 900,
-            description: "Perfect snack with nuts, seeds, and dried fruits",
+            description: "Perfect snack for an active lifestyle. Rich in protein, healthy fats, and fiber.",
             image_url: "/images/energy-mix.jpg",
             category: "Mixes",
           },
@@ -227,90 +147,19 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  const handleAddToCart = (item) => {
-    setCart((prev) => {
-      const exist = prev.find((i) => i.id === item.id);
-      if (exist) {
-        return prev.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-        );
-      }
-      return [...prev, { ...item, quantity: 1 }];
-    });
-    setClickedItemId(item.id);
-    setTimeout(() => setClickedItemId(null), 1500);
-  };
-
-  const handleRemoveFromCart = (id) => {
-    setCart((prev) =>
-      prev
-        .map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  };
-
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
   const groupedProducts = products.reduce((acc, item) => {
     if (!acc[item.category]) acc[item.category] = [];
     acc[item.category].push(item);
     return acc;
   }, {});
 
-  const handleCheckout = async () => {
-  if (!cart.length) {
-    alert("Cart is empty");
-    return;
+  if (loading) {
+    return <p style={{ textAlign: "center" }}>Loading products...</p>;
   }
-
-  if (!phone) {
-    alert("Enter your phone number");
-    return;
-  }
-
-  const summary = cart
-    .map((item, i) => `${i + 1}. ${item.name} x${item.quantity} — Rs.${item.price * item.quantity}`)
-    .join("\n");
-
-  const confirmed = window.confirm(
-    `Order Summary:\n${summary}\nTotal: Rs.${total}\nPhone: ${phone}\nProceed?`
-  );
-
-  if (!confirmed) return;
-
-  try {
-    const payload = {
-      items: cart,
-      total,
-      phone,
-      timestamp: new Date().toISOString()  // ✅ Add timestamp
-    };
-
-    const res = await fetch("https://usefulapis-production.up.railway.app/api/send-dry-fruit-order", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-
-    if (!res.ok) throw new Error("Failed to send order");
-
-    alert("Order placed successfully! You will receive an SMS shortly.");
-    setCart([]);
-    setPhone("");
-    setOrderPlaced(true);
-  } catch (err) {
-    console.error("Order submission error:", err);
-    alert("Error sending order. Please try again.");
-  }
-};
-
-
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Royal Dry Fruits Store</h1>
+      <h1 style={styles.title}>Royal Dry Fruits – Health Benefits</h1>
 
       {Object.entries(groupedProducts).map(([category, items]) => (
         <div key={category} style={styles.menuGroup}>
@@ -333,88 +182,12 @@ const Products = () => {
                   style={styles.menuImage}
                 />
                 <h4>{item.name}</h4>
-                <p style={{ color: "#7f8c8d" }}>{item.description}</p>
-                <p style={{ fontWeight: "bold", margin: "0.5rem 0" }}>
-                  Rs. {item.price}
-                </p>
-                <button
-                  onClick={() => handleAddToCart(item)}
-                  style={{
-                    ...styles.addButton,
-                    backgroundColor:
-                      clickedItemId === item.id
-                        ? "#4CAF50"
-                        : styles.addButton.backgroundColor,
-                  }}
-                >
-                  Add to Cart
-                </button>
+                <p style={styles.benefitText}>{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       ))}
-
-      <h2 style={styles.sectionHeader}>Your Cart</h2>
-      {cart.length === 0 ? (
-        <p style={{ textAlign: "center", color: "#7f8c8d" }}>
-          Your cart is empty.
-        </p>
-      ) : (
-        <div style={styles.cartSection}>
-          <ul style={styles.cartList}>
-            {cart.map((item) => (
-              <li key={item.id} style={styles.cartItem}>
-                <span>
-                  {item.name} x{item.quantity} — Rs.{item.price * item.quantity}
-                </span>
-                <button
-                  onClick={() => handleRemoveFromCart(item.id)}
-                  style={styles.removeButton}
-                >
-                  Remove
-                </button>
-              </li>
-            ))}
-          </ul>
-          <div>
-            <label htmlFor="phone" style={{ fontWeight: "bold" }}>
-              Phone / Address:
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="e.g., 0300-1234567"
-              style={styles.phoneInput}
-            />
-          </div>
-
-          <div style={styles.totalRow}>
-            <span>Total:</span>
-            <span>Rs. {total}</span>
-          </div>
-
-          <button
-            onClick={handleCheckout}
-            disabled={!phone}
-            style={{
-              ...styles.checkoutButton,
-              opacity: phone ? 1 : 0.5,
-              cursor: phone ? "pointer" : "not-allowed",
-            }}
-          >
-            Checkout
-          </button>
-        </div>
-      )}
-
-      {orderPlaced && (
-        <div style={{ textAlign: "center", marginTop: "1.5rem", color: "#27ae60" }}>
-          🎉 Order placed successfully!
-        </div>
-      )}
     </div>
   );
 };
