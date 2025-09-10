@@ -14,23 +14,25 @@ const Home = () => {
 
       {/* Hero Section */}
       <section className="text-center py-20 bg-green-100">
-         <img
-            src="/images/cover_photo.jpeg" // replace with your actual image path
-            alt="Royal Dry Fruits Banner"
-            className="w-full h-64 object-cover"
-          />
+         
         <h1 className="text-5xl font-extrabold text-green-900 mb-4">
           Royal Dry Fruits
         </h1>
         <p className="text-xl text-gray-700 mb-8">
           Premium quality dry fruits delivered straight to your doorstep.
         </p>
+        
         <Link
           to="/ShopOnline"
           className="bg-green-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:bg-green-800 transition duration-300"
         >
           Shop Now
         </Link>
+        <img
+            src="/images/cover_photo.jpeg" // replace with your actual image path
+            alt="Royal Dry Fruits Banner"
+            className="w-full h-64 object-cover"
+          />
       </section>
 
       {/* Why Choose Us */}
