@@ -134,7 +134,7 @@ const ShopOnline = () => {
             name: "Almonds",
             price: 1200,
             description: "Fresh and crunchy almonds",
-            image_url: "/images/almonds.jpg",
+            image_url: "/images/almonds.jpeg",
             category: "Nuts",
           },
           {
@@ -142,7 +142,7 @@ const ShopOnline = () => {
             name: "Cashews",
             price: 1500,
             description: "Premium cashews",
-            image_url: "/images/cashews.jpg",
+            image_url: "/images/cashews.jpeg",
             category: "Nuts",
           },
           {
@@ -150,7 +150,7 @@ const ShopOnline = () => {
             name: "Walnuts",
             price: 1600,
             description: "Healthy walnuts",
-            image_url: "/images/walnuts.jpg",
+            image_url: "/images/walnuts.jpeg",
             category: "Nuts",
           },
         
@@ -160,7 +160,7 @@ const ShopOnline = () => {
             name: "Pumpkin Seeds",
             price: 500,
             description: "Crunchy and nutritious pumpkin seeds",
-            image_url: "/images/pumpkin-seeds.jpg",
+            image_url: "/images/pumpkin-seeds.jpeg",
             category: "Seeds",
           },
           {
