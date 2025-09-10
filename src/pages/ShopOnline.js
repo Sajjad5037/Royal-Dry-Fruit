@@ -168,7 +168,7 @@ const ShopOnline = () => {
             name: "Sunflower Seeds",
             price: 400,
             description: "High-quality sunflower seeds",
-            image_url: "/images/sunflower-seeds.jpg",
+            image_url: "/images/sunflower-seeds.jpeg",
             category: "Seeds",
           },
         
@@ -178,7 +178,7 @@ const ShopOnline = () => {
             name: "Raisins",
             price: 300,
             description: "Sweet and juicy raisins",
-            image_url: "/images/raisins.jpg",
+            image_url: "/images/raisins.jpeg",
             category: "Dried Fruits",
           },
           {
@@ -186,7 +186,7 @@ const ShopOnline = () => {
             name: "Dates",
             price: 600,
             description: "Soft and natural dates",
-            image_url: "/images/dates.jpg",
+            image_url: "/images/dates.jpeg",
             category: "Dried Fruits",
           },
           {
@@ -194,7 +194,7 @@ const ShopOnline = () => {
             name: "Apricots",
             price: 700,
             description: "Premium dried apricots",
-            image_url: "/images/apricots.jpg",
+            image_url: "/images/apricots.jpeg",
             category: "Dried Fruits",
           },
         
@@ -204,7 +204,7 @@ const ShopOnline = () => {
             name: "Trail Mix",
             price: 800,
             description: "Healthy mix of nuts and dried fruits",
-            image_url: "/images/trail-mix.jpg",
+            image_url: "/images/trail-mix.jpeg",
             category: "Mixes",
           },
           {
@@ -212,7 +212,7 @@ const ShopOnline = () => {
             name: "Energy Mix",
             price: 900,
             description: "Perfect snack with nuts, seeds, and dried fruits",
-            image_url: "/images/energy-mix.jpg",
+            image_url: "/images/energy-mix.jpeg",
             category: "Mixes",
           },
         ];
