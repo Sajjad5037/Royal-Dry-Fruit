@@ -13,7 +13,7 @@ const Footer = () => {
         {/* Right side - Social links + WhatsApp */}
         <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/profile.php?id=61580322822684"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-yellow-300"
