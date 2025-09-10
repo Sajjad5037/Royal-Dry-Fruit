@@ -28,13 +28,13 @@ const Home = () => {
         >
           Shop Now
         </Link>
-        <img
+        
+      </section>
+      <img
             src="/images/cover_photo.jpeg" // replace with your actual image path
             alt="Royal Dry Fruits Banner"
             className="w-full h-64 object-cover"
-          />
-      </section>
-
+          />  
       {/* Why Choose Us */}
       <section className="py-16 px-4 text-center max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold mb-6 text-green-900">Why Choose Us?</h2>
