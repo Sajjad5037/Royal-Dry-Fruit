@@ -14,6 +14,11 @@ const Home = () => {
 
       {/* Hero Section */}
       <section className="text-center py-20 bg-green-100">
+         <img
+            src="/images/cover_photo.jpeg" // replace with your actual image path
+            alt="Royal Dry Fruits Banner"
+            className="w-full h-64 object-cover"
+          />
         <h1 className="text-5xl font-extrabold text-green-900 mb-4">
           Royal Dry Fruits
         </h1>
