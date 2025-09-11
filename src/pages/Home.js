@@ -13,7 +13,7 @@ const Home = () => {
     <div className="bg-yellow-50 min-h-screen font-sans text-gray-800">
       
       {/* Hero Section */}
-      <section className="relative bg-green-100 text-center py-24">
+      <section className="relative bg-white text-center py-24">
         <h1 className="text-5xl md:text-6xl font-extrabold text-green-900 mb-6 drop-shadow-lg">
           Royal Dry Fruits
         </h1>
