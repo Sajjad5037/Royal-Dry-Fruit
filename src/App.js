@@ -3,7 +3,12 @@ import { useState } from "react";
 export default function AIAssistantDemo() {
   const [candidate, setCandidate] = useState("John Tan");
 
-  const [summary, setSummary] = useState("");
+  const [summary, setSummary] = useState(
+    `Candidate asked about visa sponsorship and salary range.
+  Has 5 years backend experience (Python, Django).
+  I explained the process and asked for CV.`
+  );
+
   const [transcript, setTranscript] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [showAskAI, setShowAskAI] = useState(false);
@@ -38,14 +43,10 @@ export default function AIAssistantDemo() {
             </label>
             <textarea
               style={styles.textarea}
-              value={
-                summary ||
-                `Candidate asked about visa sponsorship and salary range.
-            Has 5 years backend experience (Python, Django).
-            I explained the process and asked for CV.`
-              }
+              value={summary}
               onChange={(e) => setSummary(e.target.value)}
             />
+
 
             <details style={styles.details}>
               <summary style={styles.summary}>
