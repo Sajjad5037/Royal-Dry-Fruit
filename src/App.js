@@ -11,13 +11,18 @@ export default function AIAssistantDemo() {
       <div style={styles.container}>
         <h1 style={styles.title}>AI Recruiter Assistant (Demo)</h1>
         <p style={styles.subtitle}>
-          Internal tool for recruiters. Candidates never see this.
+          Internal assistant for recruiters. Candidates never see this.
         </p>
 
         {!submitted ? (
           <>
-            {/* Candidate */}
-            <label style={styles.label}>Candidate Name / ID</label>
+            {/* STEP 1 */}
+            <h2 style={styles.stepTitle}>Step 1 — Log Interaction</h2>
+            <p style={styles.stepHint}>
+              Takes ~30 seconds. This helps AI support you later.
+            </p>
+
+            <label style={styles.label}>Candidate Name / Internal Reference</label>
             <input
               style={styles.input}
               placeholder="e.g. John Tan / JT-1023"
@@ -25,21 +30,20 @@ export default function AIAssistantDemo() {
               onChange={(e) => setCandidate(e.target.value)}
             />
 
-            {/* Summary */}
             <label style={styles.label}>
               What did the candidate ask? What did you reply?
             </label>
             <textarea
               style={styles.textarea}
-              placeholder="2–3 lines is enough. Example:
+              placeholder="2–3 lines is enough.
+Example:
 Candidate asked about visa sponsorship and salary range.
-5 years backend (Python, Django).
+Has 5 years backend experience (Python, Django).
 I explained the process and asked for CV."
               value={summary}
               onChange={(e) => setSummary(e.target.value)}
             />
 
-            {/* Optional transcript */}
             <details style={styles.details}>
               <summary style={styles.summary}>
                 Optional: Paste chat transcript (if helpful)
@@ -62,24 +66,33 @@ I explained the process and asked for CV."
           </>
         ) : (
           <>
-            {/* AI Understanding */}
-            <h2 style={styles.sectionTitle}>AI Understanding</h2>
+            {/* STEP 2 */}
+            <h2 style={styles.stepTitle}>Step 2 — What AI Understood</h2>
+            <p style={styles.stepHint}>
+              AI converts your note into structured memory it can reuse.
+            </p>
+
             <div style={styles.card}>
               <p><strong>Candidate:</strong> {candidate}</p>
               <ul>
-                <li><strong>Role Type:</strong> Backend Engineer</li>
+                <li><strong>Intent:</strong> Actively job searching</li>
                 <li><strong>Experience:</strong> ~5 years</li>
                 <li><strong>Skills Detected:</strong> Python, Django</li>
                 <li><strong>Key Concerns:</strong> Visa sponsorship, salary</li>
-                <li><strong>Status:</strong> Waiting for CV</li>
+                <li><strong>Current Status:</strong> Waiting for CV</li>
               </ul>
               <p style={styles.note}>
-                (Auto-extracted by AI from the interaction note)
+                Auto-extracted from the interaction you logged.
               </p>
             </div>
 
-            {/* Suggested Replies */}
-            <h2 style={styles.sectionTitle}>Suggested Reply Options</h2>
+            {/* STEP 3 */}
+            <h2 style={styles.stepTitle}>Step 3 — How AI Helps You Next</h2>
+            <p style={styles.stepHint}>
+              Based on this memory, AI can assist with replies and matching.
+            </p>
+
+            <h3 style={styles.subTitle}>Suggested Reply Options</h3>
 
             <div style={styles.card}>
               <p><strong>Option 1 — Friendly</strong></p>
@@ -93,22 +106,32 @@ I explained the process and asked for CV."
             <div style={styles.card}>
               <p><strong>Option 2 — Direct</strong></p>
               <p>
-                Yes, visa support is available depending on the role. Kindly
-                send your CV so we can evaluate fit and advise further.
+                Visa support is available depending on the role. Kindly send
+                your CV so we can evaluate fit and advise further.
               </p>
             </div>
 
             <div style={styles.card}>
               <p><strong>Option 3 — Follow-up</strong></p>
               <p>
-                Thank you for your interest. Once we receive your CV, we can
-                review suitable backend roles and share details on visa and
-                compensation.
+                Once we receive your CV, we can review suitable backend roles
+                and share details on visa and compensation.
               </p>
             </div>
 
-            {/* Job Match Preview */}
-            <h2 style={styles.sectionTitle}>Job Match Preview</h2>
+            {/* FUTURE VALUE */}
+            <h3 style={styles.subTitle}>How This Helps Later</h3>
+
+            <div style={styles.card}>
+              <ul>
+                <li>AI remembers this candidate’s concerns and skills</li>
+                <li>Future replies stay consistent</li>
+                <li>Same data can be reused for job matching</li>
+                <li>No need to reread old chats</li>
+              </ul>
+            </div>
+
+            <h3 style={styles.subTitle}>Job Match Preview</h3>
 
             <div style={styles.card}>
               <p><strong>Backend Engineer — FinTech Platform</strong></p>
@@ -127,7 +150,10 @@ I explained the process and asked for CV."
               </ul>
             </div>
 
-            <button style={styles.secondaryButton} onClick={() => setSubmitted(false)}>
+            <button
+              style={styles.secondaryButton}
+              onClick={() => setSubmitted(false)}
+            >
               Log Another Interaction
             </button>
           </>
@@ -145,7 +171,7 @@ const styles = {
     fontFamily: "Inter, sans-serif",
   },
   container: {
-    maxWidth: "720px",
+    maxWidth: "760px",
     margin: "0 auto",
     background: "#fff",
     padding: "32px",
@@ -158,6 +184,19 @@ const styles = {
   subtitle: {
     color: "#666",
     marginBottom: "24px",
+  },
+  stepTitle: {
+    marginTop: "24px",
+    marginBottom: "4px",
+  },
+  stepHint: {
+    fontSize: "14px",
+    color: "#555",
+    marginBottom: "12px",
+  },
+  subTitle: {
+    marginTop: "24px",
+    marginBottom: "8px",
   },
   label: {
     display: "block",
@@ -207,10 +246,6 @@ const styles = {
     border: "none",
     borderRadius: "8px",
     cursor: "pointer",
-  },
-  sectionTitle: {
-    marginTop: "32px",
-    marginBottom: "12px",
   },
   card: {
     background: "#f9fafb",
