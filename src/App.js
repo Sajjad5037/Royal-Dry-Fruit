@@ -257,7 +257,7 @@ const styles = {
   },
   textarea: {
     width: "100%",
-    minHeight: "110px",
+    minHeight: "180px",
     padding: "10px",
     borderRadius: "6px",
     border: "1px solid #ccc",
