@@ -5,6 +5,8 @@ export default function AIAssistantDemo() {
   const [summary, setSummary] = useState("");
   const [transcript, setTranscript] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [showAskAI, setShowAskAI] = useState(false);
+
 
   return (
     <div style={styles.page}>
@@ -87,38 +89,13 @@ I explained the process and asked for CV."
             </div>
 
             {/* STEP 3 */}
-            <h2 style={styles.stepTitle}>Step 3 — How AI Helps You Next</h2>
+            <h2 style={styles.stepTitle}>Step 3 — AI Assistance Using This Memory</h2>
+
             <p style={styles.stepHint}>
               Based on this memory, AI can assist with replies and matching.
             </p>
 
-            <h3 style={styles.subTitle}>Suggested Reply Options</h3>
-
-            <div style={styles.card}>
-              <p><strong>Option 1 — Friendly</strong></p>
-              <p>
-                Thanks for reaching out! We do support visa sponsorship for
-                suitable candidates. Please share your CV so we can review and
-                discuss next steps.
-              </p>
-            </div>
-
-            <div style={styles.card}>
-              <p><strong>Option 2 — Direct</strong></p>
-              <p>
-                Visa support is available depending on the role. Kindly send
-                your CV so we can evaluate fit and advise further.
-              </p>
-            </div>
-
-            <div style={styles.card}>
-              <p><strong>Option 3 — Follow-up</strong></p>
-              <p>
-                Once we receive your CV, we can review suitable backend roles
-                and share details on visa and compensation.
-              </p>
-            </div>
-
+            
             {/* FUTURE VALUE */}
             <h3 style={styles.subTitle}>How This Helps Later</h3>
 
@@ -133,14 +110,14 @@ I explained the process and asked for CV."
 
             <h3 style={styles.subTitle}>Job Match Preview</h3>
 
-            <div style={styles.card}>
-              <p><strong>Backend Engineer — FinTech Platform</strong></p>
-              <ul>
-                <li>Python & Django match</li>
-                <li>Visa support available</li>
-                <li>Mid-level salary band</li>
-              </ul>
-            </div>
+                <div style={styles.card}>
+                  <p><strong>Backend Engineer — FinTech Platform</strong></p>
+                  <ul>
+                    <li>Python & Django match</li>
+                    <li>Visa support available</li>
+                    <li>Mid-level salary band</li>
+                  </ul>
+                </div>
 
             <div style={styles.card}>
               <p><strong>API Engineer — SaaS Company</strong></p>
@@ -149,11 +126,79 @@ I explained the process and asked for CV."
                 <li>Remote-friendly team</li>
               </ul>
             </div>
+            {/* ASK AI PANEL */}
+<h2 style={styles.stepTitle}>Ask AI for Assistance (Later)</h2>
+<p style={styles.stepHint}>
+  When the candidate contacts you again, you can ask AI for help using the
+  stored context.
+</p>
+
+<div style={styles.card}>
+  <p style={{ marginBottom: "12px" }}>
+    <strong>Ask AI:</strong>
+  </p>
+
+  <div style={styles.askRow}>
+    <button
+      style={styles.askButton}
+      onClick={() => setShowAskAI(true)}
+    >
+      Suggest a reply
+    </button>
+
+    <button style={styles.askButtonDisabled} disabled>
+      Summarize candidate status
+    </button>
+
+    <button style={styles.askButtonDisabled} disabled>
+      Suggest next action
+    </button>
+  </div>
+
+  <p style={styles.note}>
+    (AI uses past interactions for this candidate. Messages are never sent
+    automatically.)
+  </p>
+</div>
+{showAskAI && (
+  <>
+    <h3 style={styles.subTitle}>AI Suggested Replies</h3>
+
+    <div style={styles.card}>
+      <p><strong>Option 1 — Friendly</strong></p>
+      <p>
+        Hi John, thanks for following up. I’ve received your CV and will
+        review it shortly. I’ll get back to you with next steps soon.
+      </p>
+    </div>
+
+    <div style={styles.card}>
+      <p><strong>Option 2 — Direct</strong></p>
+      <p>
+        Thanks for checking in. I’m currently reviewing your CV and will
+        update you once the review is complete.
+      </p>
+    </div>
+
+    <div style={styles.card}>
+      <p><strong>Option 3 — Reassuring</strong></p>
+      <p>
+        Hi John, I’ve received your CV and appreciate your patience. I’ll
+        follow up with feedback and next steps shortly.
+      </p>
+    </div>
+  </>
+)}
+
 
             <button
               style={styles.secondaryButton}
-              onClick={() => setSubmitted(false)}
+              onClick={() => {
+                setSubmitted(false);
+                setShowAskAI(false);
+              }}
             >
+
               Log Another Interaction
             </button>
           </>
@@ -254,6 +299,32 @@ const styles = {
     marginBottom: "12px",
     border: "1px solid #e5e7eb",
   },
+  askRow: {
+  display: "flex",
+  gap: "12px",
+  flexWrap: "wrap",
+},
+
+askButton: {
+  padding: "8px 14px",
+  background: "#2563eb",
+  color: "#fff",
+  border: "none",
+  borderRadius: "6px",
+  cursor: "pointer",
+  fontSize: "14px",
+},
+
+askButtonDisabled: {
+  padding: "8px 14px",
+  background: "#e5e7eb",
+  color: "#666",
+  border: "none",
+  borderRadius: "6px",
+  fontSize: "14px",
+  cursor: "not-allowed",
+},
+
   note: {
     fontSize: "13px",
     color: "#666",
