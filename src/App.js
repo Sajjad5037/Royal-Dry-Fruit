@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 export default function AIAssistantDemo() {
-  const [candidate, setCandidate] = useState("");
+  const [candidate, setCandidate] = useState("John Tan");
+
   const [summary, setSummary] = useState("");
   const [transcript, setTranscript] = useState("");
   const [submitted, setSubmitted] = useState(false);
