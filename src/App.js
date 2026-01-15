@@ -27,22 +27,22 @@ export default function AIAssistantDemo() {
             <label style={styles.label}>Candidate Name / Internal Reference</label>
             <input
               style={styles.input}
-              placeholder="e.g. John Tan / JT-1023"
-              value={candidate}
-              onChange={(e) => setCandidate(e.target.value)}
+              value="John Tan"
+              readOnly
             />
+
 
             <label style={styles.label}>
               What did the candidate ask? What did you reply?
             </label>
             <textarea
               style={styles.textarea}
-              placeholder="2–3 lines is enough.
-Example:
-Candidate asked about visa sponsorship and salary range.
-Has 5 years backend experience (Python, Django).
-I explained the process and asked for CV."
-              value={summary}
+              value={
+                summary ||
+                `Candidate asked about visa sponsorship and salary range.
+            Has 5 years backend experience (Python, Django).
+            I explained the process and asked for CV.`
+              }
               onChange={(e) => setSummary(e.target.value)}
             />
 
